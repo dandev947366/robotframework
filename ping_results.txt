@@ -1,0 +1,1 @@
+www.whitehouse.gov - IP: 192.0.66.168 - Avg Time: 9.557/19.516/37.648/10.902 mswww.iltalehti.fi - IP: 18.165.122.89 - Avg Time: 7.610/9.045/11.977/1.716 msbest.aliexpress.com - IP: 184.84.235.26 - Avg Time: 9.026/11.667/14.689/2.165 ms

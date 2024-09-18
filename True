@@ -1,9 +1,9 @@
 PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes
-64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=8.891 ms
-64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=11.954 ms
-64 bytes from 184.84.235.26: icmp_seq=2 ttl=56 time=9.105 ms
-64 bytes from 184.84.235.26: icmp_seq=3 ttl=56 time=9.535 ms
+64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.026 ms
+64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=12.609 ms
+64 bytes from 184.84.235.26: icmp_seq=2 ttl=56 time=14.689 ms
+64 bytes from 184.84.235.26: icmp_seq=3 ttl=56 time=10.344 ms
 
 --- e11956.x.akamaiedge.net ping statistics ---
 4 packets transmitted, 4 packets received, 0.0% packet loss
-round-trip min/avg/max/stddev = 8.891/9.871/11.954/1.225 ms
+round-trip min/avg/max/stddev = 9.026/11.667/14.689/2.165 ms

@@ -6,16 +6,20 @@ Library           Process
 
 *** Variables ***
 ${INPUT_FILE}     webpages.txt
+${OUTPUT_FILE}    ping_results.txt
 
 *** Test Cases ***
-Ping Each Address And Verify Time
-    [Documentation]    Read URLs from webpages.txt, ping each one, and verify the ping time is less than 50ms.
+Ping Each Address And Save Results
+    [Documentation]    Read URLs from ${INPUT_FILE}, ping each one, save IP address and average ping time to ${OUTPUT_FILE}, and verify the ping time is less than 50ms.
 
     # Read the file into a variable
     ${file_content}=   Get File    ${INPUT_FILE}
     
     # Split the content into a list of websites
     @{webpages}=       Split String    ${file_content}    \n
+    
+    # Open the output file for writing
+    Create File    ${OUTPUT_FILE}
     
     # Loop through each webpage and ping the address
     FOR    ${webpage}    IN    @{webpages}
@@ -34,10 +38,12 @@ Ping Each Address And Verify Time
         # Log the IP and average ping time
         Log To Console   ${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms
         
+        # Write results to the output file
+        Append To File    ${OUTPUT_FILE}    ${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms
+        
         # Test if the average ping time is less than 50ms
         Run Keyword If    ${avg_ping_time} < 50    Log To Console   ${webpage} is faster than 50ms.
         Run Keyword If    ${avg_ping_time} >= 50    Fail    ${webpage} took ${avg_ping_time}ms, which is greater than 50ms.
-
     END
 
 *** Keywords ***
