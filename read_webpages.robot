@@ -1,5 +1,7 @@
 *** Settings ***
 Library           OperatingSystem
+Library           Collections
+Library           String  # Add the String library to use Split String
 
 *** Variables ***
 ${INPUT_FILE}     webpages.txt
@@ -11,7 +13,7 @@ Read Webpages Into A Variable
     # Read the file into a variable
     ${file_content}=   Get File    ${INPUT_FILE}
     
-    # Optionally, split the content into a list of websites
+    # Split the content into a list of websites
     @{webpages}=       Split String    ${file_content}    \n
     
     # Log to console to check the variable content

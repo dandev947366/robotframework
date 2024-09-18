@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-18T08:40:26.383405" rpa="false" schemaversion="5">
+<suite id="s1" name="Ping Address" source="/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_address.robot">
+<test id="s1-t1" name="Ping Each Address" line="11">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-09-18T08:40:26.409009" level="INFO" html="true">Getting file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/webpages.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/webpages.txt&lt;/a&gt;'.</msg>
+<msg time="2024-09-18T08:40:26.409307" level="INFO">${file_content} = www.whitehouse.gov
+www.iltalehti.fi
+best.aliexpress.com</msg>
+<var>${file_content}</var>
+<arg>${INPUT_FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-09-18T08:40:26.408784" elapsed="0.000537"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-09-18T08:40:26.409545" level="INFO">@{webpages} = [ www.whitehouse.gov | www.iltalehti.fi | best.aliexpress.com ]</msg>
+<var>@{webpages}</var>
+<arg>${file_content}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-09-18T08:40:26.409428" elapsed="0.000130"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Pinging ${webpage}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-18T08:40:26.409760" elapsed="0.000093"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2024-09-18T08:40:26.410257" level="INFO">Starting process:
+ping www.whitehouse.gov "-c 4"</msg>
+<msg time="2024-09-18T08:40:26.412732" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-18T08:40:29.447714" level="INFO">Process completed.</msg>
+<msg time="2024-09-18T08:40:29.448443" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>${webpage}</arg>
+<arg>-c 4</arg>
+<arg>stdout=True</arg>
+<arg>stderr=True</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-09-18T08:40:26.409910" elapsed="3.038610"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-18T08:40:29.451397" level="INFO">${ping_output} = PING wh46.go-vip.net (192.0.66.168): 56 data bytes
+64 bytes from 192.0.66.168: icmp_seq=0 ttl=57 time=10.854 ms
+64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=9.759 ms
+64 bytes from 192.0.66.168: ...</msg>
+<var>${ping_output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-18T08:40:29.449186" elapsed="0.002258"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-18T08:40:29.451646" elapsed="0.000299"/>
+</kw>
+<var name="${webpage}">www.whitehouse.gov</var>
+<status status="PASS" start="2024-09-18T08:40:26.409713" elapsed="3.042290"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Pinging ${webpage}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-18T08:40:29.452376" elapsed="0.000227"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2024-09-18T08:40:29.453500" level="INFO">Starting process:
+ping www.iltalehti.fi "-c 4"</msg>
+<msg time="2024-09-18T08:40:29.457493" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-18T08:40:32.513213" level="INFO">Process completed.</msg>
+<msg time="2024-09-18T08:40:32.514661" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>${webpage}</arg>
+<arg>-c 4</arg>
+<arg>stdout=True</arg>
+<arg>stderr=True</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-09-18T08:40:29.452762" elapsed="3.061997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-18T08:40:32.520448" level="INFO">${ping_output} = PING d4dgdwhncmjfe.cloudfront.net (18.165.122.99): 56 data bytes
+64 bytes from 18.165.122.99: icmp_seq=0 ttl=249 time=2.767 ms
+64 bytes from 18.165.122.99: icmp_seq=1 ttl=249 time=2.258 ms
+64 bytes fr...</msg>
+<var>${ping_output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-18T08:40:32.515895" elapsed="0.004618"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-18T08:40:32.520800" elapsed="0.000394"/>
+</kw>
+<var name="${webpage}">www.iltalehti.fi</var>
+<status status="PASS" start="2024-09-18T08:40:29.452256" elapsed="3.069015"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Pinging ${webpage}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-18T08:40:32.521722" elapsed="0.000254"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2024-09-18T08:40:32.523109" level="INFO">Starting process:
+ping best.aliexpress.com "-c 4"</msg>
+<msg time="2024-09-18T08:40:32.528988" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-18T08:40:36.012223" level="INFO">Process completed.</msg>
+<msg time="2024-09-18T08:40:36.013993" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>${webpage}</arg>
+<arg>-c 4</arg>
+<arg>stdout=True</arg>
+<arg>stderr=True</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-09-18T08:40:32.522151" elapsed="3.492004"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-18T08:40:36.019510" level="INFO">${ping_output} = PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes
+64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=10.916 ms
+64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=8.980 ms
+64 bytes from 184...</msg>
+<var>${ping_output}</var>
+<arg>${result.stdout}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-18T08:40:36.015618" elapsed="0.003952"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-18T08:40:36.019835" elapsed="0.000360"/>
+</kw>
+<var name="${webpage}">best.aliexpress.com</var>
+<status status="PASS" start="2024-09-18T08:40:32.521584" elapsed="3.498673"/>
+</iter>
+<var>${webpage}</var>
+<value>@{webpages}</value>
+<status status="PASS" start="2024-09-18T08:40:26.409612" elapsed="9.610717"/>
+</for>
+<doc>Read URLs from webpages.txt and ping each one.</doc>
+<status status="PASS" start="2024-09-18T08:40:26.408166" elapsed="9.612545"/>
+</test>
+<status status="PASS" start="2024-09-18T08:40:26.384491" elapsed="9.637152"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Ping Address">Ping Address</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
