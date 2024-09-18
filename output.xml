@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-18T08:59:03.386945" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-18T09:16:42.275722" rpa="false" schemaversion="5">
 <suite id="s1" name="Assignment4" source="/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/assignment4.robot">
 <test id="s1-t1" name="Ping Each Address And Save Results" line="18">
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2024-09-18T08:59:03.410195" level="INFO" html="true">Getting file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/webpages.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/webpages.txt&lt;/a&gt;'.</msg>
-<msg time="2024-09-18T08:59:03.410428" level="INFO">${file_content} = www.whitehouse.gov
+<msg time="2024-09-18T09:16:42.302108" level="INFO" html="true">Getting file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/webpages.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/webpages.txt&lt;/a&gt;'.</msg>
+<msg time="2024-09-18T09:16:42.303769" level="INFO">${file_content} = www.whitehouse.gov
 www.iltalehti.fi
 best.aliexpress.com</msg>
 <var>${file_content}</var>
 <arg>${INPUT_FILE}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2024-09-18T08:59:03.409986" elapsed="0.000456"/>
+<status status="PASS" start="2024-09-18T09:16:42.301055" elapsed="0.002728"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:03.410655" level="INFO">@{webpages} = [ www.whitehouse.gov | www.iltalehti.fi | best.aliexpress.com ]</msg>
+<msg time="2024-09-18T09:16:42.303992" level="INFO">@{webpages} = [ www.whitehouse.gov | www.iltalehti.fi | best.aliexpress.com ]</msg>
 <var>@{webpages}</var>
 <arg>${file_content}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:03.410543" elapsed="0.000125"/>
+<status status="PASS" start="2024-09-18T09:16:42.303880" elapsed="0.000124"/>
 </kw>
 <kw name="Create File" owner="OperatingSystem">
-<msg time="2024-09-18T08:59:03.411097" level="INFO" html="true">Created file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
+<msg time="2024-09-18T09:16:42.306062" level="INFO" html="true">Created file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
 <arg>${OUTPUT_FILE}</arg>
 <doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2024-09-18T08:59:03.410743" elapsed="0.000383"/>
+<status status="PASS" start="2024-09-18T09:16:42.304077" elapsed="0.002034"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Pinging ${webpage}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:03.411366" elapsed="0.000087"/>
+<status status="PASS" start="2024-09-18T09:16:42.306422" elapsed="0.000112"/>
 </kw>
 <kw name="Run Process" owner="Process">
-<msg time="2024-09-18T08:59:03.411833" level="INFO">Starting process:
+<msg time="2024-09-18T09:16:42.307297" level="INFO">Starting process:
 ping www.whitehouse.gov "-c 4"</msg>
-<msg time="2024-09-18T08:59:03.414168" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-09-18T08:59:06.451222" level="INFO">Process completed.</msg>
-<msg time="2024-09-18T08:59:06.452930" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-09-18T09:16:42.309457" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-18T09:16:50.531851" level="INFO">Process completed.</msg>
+<msg time="2024-09-18T09:16:50.533110" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>ping</arg>
 <arg>${webpage}</arg>
@@ -47,154 +47,154 @@ ping www.whitehouse.gov "-c 4"</msg>
 <arg>stderr=True</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-09-18T08:59:03.411511" elapsed="3.041596"/>
+<status status="PASS" start="2024-09-18T09:16:42.306597" elapsed="8.226636"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-09-18T08:59:06.457864" level="INFO">${ping_output} = PING wh46.go-vip.net (192.0.66.168): 56 data bytes
-64 bytes from 192.0.66.168: icmp_seq=0 ttl=57 time=37.648 ms
-64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=18.076 ms
-64 bytes from 192.0.66.168:...</msg>
+<msg time="2024-09-18T09:16:50.540615" level="INFO">${ping_output} = PING wh46.go-vip.net (192.0.66.168): 56 data bytes
+Request timeout for icmp_seq 0
+64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=173.983 ms
+64 bytes from 192.0.66.168: icmp_seq=2 ttl=57 time=9.740...</msg>
 <var>${ping_output}</var>
 <arg>${result.stdout}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.453985" elapsed="0.003928"/>
+<status status="PASS" start="2024-09-18T09:16:50.534702" elapsed="0.006605"/>
 </kw>
 <kw name="Get IP Address">
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:06.459484" level="INFO">${lines} = ['PING wh46.go-vip.net (192.0.66.168): 56 data bytes', '64 bytes from 192.0.66.168: icmp_seq=0 ttl=57 time=37.648 ms', '64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=18.076 ms', '64 bytes from 19...</msg>
+<msg time="2024-09-18T09:16:50.544012" level="INFO">${lines} = ['PING wh46.go-vip.net (192.0.66.168): 56 data bytes', 'Request timeout for icmp_seq 0', '64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=173.983 ms', '64 bytes from 192.0.66.168: icmp_seq=2 ttl=57...</msg>
 <var>${lines}</var>
 <arg>${ping_output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.459135" elapsed="0.000393"/>
+<status status="PASS" start="2024-09-18T09:16:50.543618" elapsed="0.000444"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2024-09-18T08:59:06.459998" level="INFO">${ip_line} = PING wh46.go-vip.net (192.0.66.168): 56 data bytes</msg>
+<msg time="2024-09-18T09:16:50.544550" level="INFO">${ip_line} = PING wh46.go-vip.net (192.0.66.168): 56 data bytes</msg>
 <var>${ip_line}</var>
 <arg>${lines}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.459717" elapsed="0.000317"/>
+<status status="PASS" start="2024-09-18T09:16:50.544269" elapsed="0.000319"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:06.460460" level="INFO">${ip_address} = ['PING wh46.go-vip.net ', '192.0.66.168): 56 data bytes']</msg>
+<msg time="2024-09-18T09:16:50.545047" level="INFO">${ip_address} = ['PING wh46.go-vip.net ', '192.0.66.168): 56 data bytes']</msg>
 <var>${ip_address}</var>
 <arg>${ip_line}</arg>
 <arg>\(</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.460200" elapsed="0.000302"/>
+<status status="PASS" start="2024-09-18T09:16:50.544769" elapsed="0.000315"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:06.461499" level="INFO">${ip_address} = ['192.0.66.168', ': 56 data bytes']</msg>
+<msg time="2024-09-18T09:16:50.546117" level="INFO">${ip_address} = ['192.0.66.168', ': 56 data bytes']</msg>
 <var>${ip_address}</var>
 <arg>${ip_address[1]}</arg>
 <arg>\)</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.460665" elapsed="0.000877"/>
+<status status="PASS" start="2024-09-18T09:16:50.545252" elapsed="0.000906"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2024-09-18T08:59:06.462398" level="INFO">${ip_address} = 192.0.66.168</msg>
+<msg time="2024-09-18T09:16:50.547095" level="INFO">${ip_address} = 192.0.66.168</msg>
 <var>${ip_address}</var>
 <arg>${ip_address[0]}</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.461712" elapsed="0.000717"/>
+<status status="PASS" start="2024-09-18T09:16:50.546330" elapsed="0.000801"/>
 </kw>
 <return>
 <value>${ip_address}</value>
-<status status="PASS" start="2024-09-18T08:59:06.462502" elapsed="0.000098"/>
+<status status="PASS" start="2024-09-18T09:16:50.547217" elapsed="0.000107"/>
 </return>
-<msg time="2024-09-18T08:59:06.462773" level="INFO">${ip_address} = 192.0.66.168</msg>
+<msg time="2024-09-18T09:16:50.547545" level="INFO">${ip_address} = 192.0.66.168</msg>
 <var>${ip_address}</var>
 <arg>${ping_output}</arg>
-<status status="PASS" start="2024-09-18T08:59:06.458420" elapsed="0.004382"/>
+<status status="PASS" start="2024-09-18T09:16:50.542639" elapsed="0.004941"/>
 </kw>
 <kw name="Get Average Ping Time">
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:06.463551" level="INFO">${lines} = ['PING wh46.go-vip.net (192.0.66.168): 56 data bytes', '64 bytes from 192.0.66.168: icmp_seq=0 ttl=57 time=37.648 ms', '64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=18.076 ms', '64 bytes from 19...</msg>
+<msg time="2024-09-18T09:16:50.548546" level="INFO">${lines} = ['PING wh46.go-vip.net (192.0.66.168): 56 data bytes', 'Request timeout for icmp_seq 0', '64 bytes from 192.0.66.168: icmp_seq=1 ttl=57 time=173.983 ms', '64 bytes from 192.0.66.168: icmp_seq=2 ttl=57...</msg>
 <var>${lines}</var>
 <arg>${ping_output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.463343" elapsed="0.000239"/>
+<status status="PASS" start="2024-09-18T09:16:50.548280" elapsed="0.000308"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2024-09-18T08:59:06.463906" level="INFO">${avg_line} = round-trip min/avg/max/stddev = 9.557/19.516/37.648/10.902 ms</msg>
+<msg time="2024-09-18T09:16:50.548979" level="INFO">${avg_line} = round-trip min/avg/max/stddev = 9.740/65.598/173.983/76.652 ms</msg>
 <var>${avg_line}</var>
 <arg>${lines}</arg>
 <arg>-1</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.463717" elapsed="0.000217"/>
+<status status="PASS" start="2024-09-18T09:16:50.548754" elapsed="0.000252"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:06.464275" level="INFO">${avg_time} = ['round-trip min/avg/max/stddev ', ' 9.557/19.516/37.648/10.902 ms']</msg>
+<msg time="2024-09-18T09:16:50.549345" level="INFO">${avg_time} = ['round-trip min/avg/max/stddev ', ' 9.740/65.598/173.983/76.652 ms']</msg>
 <var>${avg_time}</var>
 <arg>${avg_line}</arg>
 <arg>=</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.464064" elapsed="0.000239"/>
+<status status="PASS" start="2024-09-18T09:16:50.549135" elapsed="0.000238"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2024-09-18T08:59:06.465161" level="INFO">${avg_time} = 9.557/19.516/37.648/10.902</msg>
+<msg time="2024-09-18T09:16:50.550220" level="INFO">${avg_time} = 9.740/65.598/173.983/76.652</msg>
 <var>${avg_time}</var>
 <arg>${avg_time[1].split()[0]}</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.464430" elapsed="0.000760"/>
+<status status="PASS" start="2024-09-18T09:16:50.549500" elapsed="0.000751"/>
 </kw>
 <return>
 <value>${avg_time}</value>
-<status status="PASS" start="2024-09-18T08:59:06.465251" elapsed="0.000035"/>
+<status status="PASS" start="2024-09-18T09:16:50.550313" elapsed="0.000034"/>
 </return>
-<msg time="2024-09-18T08:59:06.465436" level="INFO">${avg_ping_time} = 9.557/19.516/37.648/10.902</msg>
+<msg time="2024-09-18T09:16:50.550502" level="INFO">${avg_ping_time} = 9.740/65.598/173.983/76.652</msg>
 <var>${avg_ping_time}</var>
 <arg>${ping_output}</arg>
-<status status="PASS" start="2024-09-18T08:59:06.463002" elapsed="0.002460"/>
+<status status="PASS" start="2024-09-18T09:16:50.547858" elapsed="0.002672"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.465594" elapsed="0.000325"/>
+<status status="PASS" start="2024-09-18T09:16:50.550671" elapsed="0.000333"/>
 </kw>
 <kw name="Append To File" owner="OperatingSystem">
-<msg time="2024-09-18T08:59:06.467319" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
+<msg time="2024-09-18T09:16:50.553525" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
 <arg>${OUTPUT_FILE}</arg>
 <arg>${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms</arg>
 <doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.466189" elapsed="0.001202"/>
+<status status="PASS" start="2024-09-18T09:16:50.551293" elapsed="0.002339"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${webpage} is faster than 50ms.</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.467869" elapsed="0.000160"/>
+<status status="PASS" start="2024-09-18T09:16:50.554263" elapsed="0.000227"/>
 </kw>
 <arg>${avg_ping_time} &lt; 50</arg>
 <arg>Log To Console</arg>
 <arg>${webpage} is faster than 50ms.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.467560" elapsed="0.000523"/>
+<status status="PASS" start="2024-09-18T09:16:50.553866" elapsed="0.000695"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${avg_ping_time} &gt;= 50</arg>
 <arg>Fail</arg>
 <arg>${webpage} took ${avg_ping_time}ms, which is greater than 50ms.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.468202" elapsed="0.000144"/>
+<status status="PASS" start="2024-09-18T09:16:50.554713" elapsed="0.000196"/>
 </kw>
 <var name="${webpage}">www.whitehouse.gov</var>
-<status status="PASS" start="2024-09-18T08:59:03.411320" elapsed="3.057072"/>
+<status status="PASS" start="2024-09-18T09:16:42.306365" elapsed="8.248605"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Pinging ${webpage}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.468671" elapsed="0.000154"/>
+<status status="PASS" start="2024-09-18T09:16:50.555283" elapsed="0.000194"/>
 </kw>
 <kw name="Run Process" owner="Process">
-<msg time="2024-09-18T08:59:06.470052" level="INFO">Starting process:
+<msg time="2024-09-18T09:16:50.556287" level="INFO">Starting process:
 ping www.iltalehti.fi "-c 4"</msg>
-<msg time="2024-09-18T08:59:06.475399" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-09-18T08:59:12.678836" level="INFO">Process completed.</msg>
-<msg time="2024-09-18T08:59:12.680556" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-09-18T09:16:50.560159" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-18T09:16:53.620571" level="INFO">Process completed.</msg>
+<msg time="2024-09-18T09:16:53.624125" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>ping</arg>
 <arg>${webpage}</arg>
@@ -203,154 +203,154 @@ ping www.iltalehti.fi "-c 4"</msg>
 <arg>stderr=True</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-09-18T08:59:06.468931" elapsed="6.211799"/>
+<status status="PASS" start="2024-09-18T09:16:50.555606" elapsed="3.068642"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-09-18T08:59:12.686771" level="INFO">${ping_output} = PING d4dgdwhncmjfe.cloudfront.net (18.165.122.89): 56 data bytes
-64 bytes from 18.165.122.89: icmp_seq=0 ttl=249 time=8.281 ms
-64 bytes from 18.165.122.89: icmp_seq=1 ttl=249 time=8.310 ms
-64 bytes fr...</msg>
+<msg time="2024-09-18T09:16:53.628973" level="INFO">${ping_output} = PING d4dgdwhncmjfe.cloudfront.net (18.165.122.110): 56 data bytes
+64 bytes from 18.165.122.110: icmp_seq=0 ttl=249 time=2.635 ms
+64 bytes from 18.165.122.110: icmp_seq=1 ttl=249 time=8.531 ms
+64 bytes...</msg>
 <var>${ping_output}</var>
 <arg>${result.stdout}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.682464" elapsed="0.004362"/>
+<status status="PASS" start="2024-09-18T09:16:53.625128" elapsed="0.003909"/>
 </kw>
 <kw name="Get IP Address">
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:12.688096" level="INFO">${lines} = ['PING d4dgdwhncmjfe.cloudfront.net (18.165.122.89): 56 data bytes', '64 bytes from 18.165.122.89: icmp_seq=0 ttl=249 time=8.281 ms', '64 bytes from 18.165.122.89: icmp_seq=1 ttl=249 time=8.310 ms', '...</msg>
+<msg time="2024-09-18T09:16:53.632453" level="INFO">${lines} = ['PING d4dgdwhncmjfe.cloudfront.net (18.165.122.110): 56 data bytes', '64 bytes from 18.165.122.110: icmp_seq=0 ttl=249 time=2.635 ms', '64 bytes from 18.165.122.110: icmp_seq=1 ttl=249 time=8.531 ms'...</msg>
 <var>${lines}</var>
 <arg>${ping_output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.687815" elapsed="0.000317"/>
+<status status="PASS" start="2024-09-18T09:16:53.630781" elapsed="0.001778"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2024-09-18T08:59:12.688517" level="INFO">${ip_line} = PING d4dgdwhncmjfe.cloudfront.net (18.165.122.89): 56 data bytes</msg>
+<msg time="2024-09-18T09:16:53.633757" level="INFO">${ip_line} = PING d4dgdwhncmjfe.cloudfront.net (18.165.122.110): 56 data bytes</msg>
 <var>${ip_line}</var>
 <arg>${lines}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.688290" elapsed="0.000256"/>
+<status status="PASS" start="2024-09-18T09:16:53.633084" elapsed="0.000743"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:12.688897" level="INFO">${ip_address} = ['PING d4dgdwhncmjfe.cloudfront.net ', '18.165.122.89): 56 data bytes']</msg>
+<msg time="2024-09-18T09:16:53.634516" level="INFO">${ip_address} = ['PING d4dgdwhncmjfe.cloudfront.net ', '18.165.122.110): 56 data bytes']</msg>
 <var>${ip_address}</var>
 <arg>${ip_line}</arg>
 <arg>\(</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.688683" elapsed="0.000244"/>
+<status status="PASS" start="2024-09-18T09:16:53.634129" elapsed="0.000427"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:12.689760" level="INFO">${ip_address} = ['18.165.122.89', ': 56 data bytes']</msg>
+<msg time="2024-09-18T09:16:53.635658" level="INFO">${ip_address} = ['18.165.122.110', ': 56 data bytes']</msg>
 <var>${ip_address}</var>
 <arg>${ip_address[1]}</arg>
 <arg>\)</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.689060" elapsed="0.000731"/>
+<status status="PASS" start="2024-09-18T09:16:53.634742" elapsed="0.000956"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2024-09-18T08:59:12.690457" level="INFO">${ip_address} = 18.165.122.89</msg>
+<msg time="2024-09-18T09:16:53.636703" level="INFO">${ip_address} = 18.165.122.110</msg>
 <var>${ip_address}</var>
 <arg>${ip_address[0]}</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.689930" elapsed="0.000553"/>
+<status status="PASS" start="2024-09-18T09:16:53.635881" elapsed="0.000861"/>
 </kw>
 <return>
 <value>${ip_address}</value>
-<status status="PASS" start="2024-09-18T08:59:12.690546" elapsed="0.000079"/>
+<status status="PASS" start="2024-09-18T09:16:53.636840" elapsed="0.000118"/>
 </return>
-<msg time="2024-09-18T08:59:12.690770" level="INFO">${ip_address} = 18.165.122.89</msg>
+<msg time="2024-09-18T09:16:53.637179" level="INFO">${ip_address} = 18.165.122.110</msg>
 <var>${ip_address}</var>
 <arg>${ping_output}</arg>
-<status status="PASS" start="2024-09-18T08:59:12.687294" elapsed="0.003499"/>
+<status status="PASS" start="2024-09-18T09:16:53.630031" elapsed="0.007181"/>
 </kw>
 <kw name="Get Average Ping Time">
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:12.691436" level="INFO">${lines} = ['PING d4dgdwhncmjfe.cloudfront.net (18.165.122.89): 56 data bytes', '64 bytes from 18.165.122.89: icmp_seq=0 ttl=249 time=8.281 ms', '64 bytes from 18.165.122.89: icmp_seq=1 ttl=249 time=8.310 ms', '...</msg>
+<msg time="2024-09-18T09:16:53.638085" level="INFO">${lines} = ['PING d4dgdwhncmjfe.cloudfront.net (18.165.122.110): 56 data bytes', '64 bytes from 18.165.122.110: icmp_seq=0 ttl=249 time=2.635 ms', '64 bytes from 18.165.122.110: icmp_seq=1 ttl=249 time=8.531 ms'...</msg>
 <var>${lines}</var>
 <arg>${ping_output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.691252" elapsed="0.000215"/>
+<status status="PASS" start="2024-09-18T09:16:53.637857" elapsed="0.000260"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2024-09-18T08:59:12.691755" level="INFO">${avg_line} = round-trip min/avg/max/stddev = 7.610/9.045/11.977/1.716 ms</msg>
+<msg time="2024-09-18T09:16:53.638455" level="INFO">${avg_line} = round-trip min/avg/max/stddev = 2.635/5.686/8.531/2.089 ms</msg>
 <var>${avg_line}</var>
 <arg>${lines}</arg>
 <arg>-1</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.691588" elapsed="0.000191"/>
+<status status="PASS" start="2024-09-18T09:16:53.638255" elapsed="0.000228"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:12.692070" level="INFO">${avg_time} = ['round-trip min/avg/max/stddev ', ' 7.610/9.045/11.977/1.716 ms']</msg>
+<msg time="2024-09-18T09:16:53.638825" level="INFO">${avg_time} = ['round-trip min/avg/max/stddev ', ' 2.635/5.686/8.531/2.089 ms']</msg>
 <var>${avg_time}</var>
 <arg>${avg_line}</arg>
 <arg>=</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.691891" elapsed="0.000208"/>
+<status status="PASS" start="2024-09-18T09:16:53.638614" elapsed="0.000239"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2024-09-18T08:59:12.692687" level="INFO">${avg_time} = 7.610/9.045/11.977/1.716</msg>
+<msg time="2024-09-18T09:16:53.639542" level="INFO">${avg_time} = 2.635/5.686/8.531/2.089</msg>
 <var>${avg_time}</var>
 <arg>${avg_time[1].split()[0]}</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.692211" elapsed="0.000501"/>
+<status status="PASS" start="2024-09-18T09:16:53.638982" elapsed="0.000589"/>
 </kw>
 <return>
 <value>${avg_time}</value>
-<status status="PASS" start="2024-09-18T08:59:12.692761" elapsed="0.000028"/>
+<status status="PASS" start="2024-09-18T09:16:53.639630" elapsed="0.000035"/>
 </return>
-<msg time="2024-09-18T08:59:12.692918" level="INFO">${avg_ping_time} = 7.610/9.045/11.977/1.716</msg>
+<msg time="2024-09-18T09:16:53.639821" level="INFO">${avg_ping_time} = 2.635/5.686/8.531/2.089</msg>
 <var>${avg_ping_time}</var>
 <arg>${ping_output}</arg>
-<status status="PASS" start="2024-09-18T08:59:12.690960" elapsed="0.001981"/>
+<status status="PASS" start="2024-09-18T09:16:53.637483" elapsed="0.002363"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.693057" elapsed="0.000289"/>
+<status status="PASS" start="2024-09-18T09:16:53.639984" elapsed="0.000354"/>
 </kw>
 <kw name="Append To File" owner="OperatingSystem">
-<msg time="2024-09-18T08:59:12.694496" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
+<msg time="2024-09-18T09:16:53.641694" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
 <arg>${OUTPUT_FILE}</arg>
 <arg>${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms</arg>
 <doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.693466" elapsed="0.001160"/>
+<status status="PASS" start="2024-09-18T09:16:53.640472" elapsed="0.001393"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${webpage} is faster than 50ms.</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.695046" elapsed="0.000168"/>
+<status status="PASS" start="2024-09-18T09:16:53.642437" elapsed="0.000227"/>
 </kw>
 <arg>${avg_ping_time} &lt; 50</arg>
 <arg>Log To Console</arg>
 <arg>${webpage} is faster than 50ms.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.694769" elapsed="0.000502"/>
+<status status="PASS" start="2024-09-18T09:16:53.642065" elapsed="0.000675"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${avg_ping_time} &gt;= 50</arg>
 <arg>Fail</arg>
 <arg>${webpage} took ${avg_ping_time}ms, which is greater than 50ms.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.695389" elapsed="0.000144"/>
+<status status="PASS" start="2024-09-18T09:16:53.642897" elapsed="0.000185"/>
 </kw>
 <var name="${webpage}">www.iltalehti.fi</var>
-<status status="PASS" start="2024-09-18T08:59:06.468585" elapsed="6.226996"/>
+<status status="PASS" start="2024-09-18T09:16:50.555172" elapsed="3.087977"/>
 </iter>
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Pinging ${webpage}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.695833" elapsed="0.000133"/>
+<status status="PASS" start="2024-09-18T09:16:53.643426" elapsed="0.000170"/>
 </kw>
 <kw name="Run Process" owner="Process">
-<msg time="2024-09-18T08:59:12.696678" level="INFO">Starting process:
+<msg time="2024-09-18T09:16:53.644844" level="INFO">Starting process:
 ping best.aliexpress.com "-c 4"</msg>
-<msg time="2024-09-18T08:59:12.701840" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-09-18T08:59:16.141050" level="INFO">Process completed.</msg>
-<msg time="2024-09-18T08:59:16.142328" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-09-18T09:16:53.648766" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-18T09:16:57.144723" level="INFO">Process completed.</msg>
+<msg time="2024-09-18T09:16:57.145769" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
 <var>${result}</var>
 <arg>ping</arg>
 <arg>${webpage}</arg>
@@ -359,150 +359,150 @@ ping best.aliexpress.com "-c 4"</msg>
 <arg>stderr=True</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-09-18T08:59:12.696067" elapsed="3.446431"/>
+<status status="PASS" start="2024-09-18T09:16:53.643714" elapsed="3.502144"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-09-18T08:59:16.146896" level="INFO">${ping_output} = PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes
-64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.026 ms
-64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=12.609 ms
+<msg time="2024-09-18T09:16:57.151221" level="INFO">${ping_output} = PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes
+64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.018 ms
+64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=11.473 ms
 64 bytes from 184...</msg>
 <var>${ping_output}</var>
 <arg>${result.stdout}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.143265" elapsed="0.003679"/>
+<status status="PASS" start="2024-09-18T09:16:57.146997" elapsed="0.004415"/>
 </kw>
 <kw name="Get IP Address">
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:16.148726" level="INFO">${lines} = ['PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes', '64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.026 ms', '64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=12.609 ms', '64 byt...</msg>
+<msg time="2024-09-18T09:16:57.157005" level="INFO">${lines} = ['PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes', '64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.018 ms', '64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=11.473 ms', '64 byt...</msg>
 <var>${lines}</var>
 <arg>${ping_output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.148398" elapsed="0.000370"/>
+<status status="PASS" start="2024-09-18T09:16:57.156593" elapsed="0.000464"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2024-09-18T08:59:16.149214" level="INFO">${ip_line} = PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes</msg>
+<msg time="2024-09-18T09:16:57.157527" level="INFO">${ip_line} = PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes</msg>
 <var>${ip_line}</var>
 <arg>${lines}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.148955" elapsed="0.000295"/>
+<status status="PASS" start="2024-09-18T09:16:57.157268" elapsed="0.000297"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:16.149678" level="INFO">${ip_address} = ['PING e11956.x.akamaiedge.net ', '184.84.235.26): 56 data bytes']</msg>
+<msg time="2024-09-18T09:16:57.158001" level="INFO">${ip_address} = ['PING e11956.x.akamaiedge.net ', '184.84.235.26): 56 data bytes']</msg>
 <var>${ip_address}</var>
 <arg>${ip_line}</arg>
 <arg>\(</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.149416" elapsed="0.000297"/>
+<status status="PASS" start="2024-09-18T09:16:57.157738" elapsed="0.000298"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:16.150587" level="INFO">${ip_address} = ['184.84.235.26', ': 56 data bytes']</msg>
+<msg time="2024-09-18T09:16:57.159048" level="INFO">${ip_address} = ['184.84.235.26', ': 56 data bytes']</msg>
 <var>${ip_address}</var>
 <arg>${ip_address[1]}</arg>
 <arg>\)</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.149873" elapsed="0.000745"/>
+<status status="PASS" start="2024-09-18T09:16:57.158193" elapsed="0.000893"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2024-09-18T08:59:16.151372" level="INFO">${ip_address} = 184.84.235.26</msg>
+<msg time="2024-09-18T09:16:57.159983" level="INFO">${ip_address} = 184.84.235.26</msg>
 <var>${ip_address}</var>
 <arg>${ip_address[0]}</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.150759" elapsed="0.000643"/>
+<status status="PASS" start="2024-09-18T09:16:57.159256" elapsed="0.000758"/>
 </kw>
 <return>
 <value>${ip_address}</value>
-<status status="PASS" start="2024-09-18T08:59:16.151474" elapsed="0.000086"/>
+<status status="PASS" start="2024-09-18T09:16:57.160080" elapsed="0.000065"/>
 </return>
-<msg time="2024-09-18T08:59:16.151727" level="INFO">${ip_address} = 184.84.235.26</msg>
+<msg time="2024-09-18T09:16:57.160308" level="INFO">${ip_address} = 184.84.235.26</msg>
 <var>${ip_address}</var>
 <arg>${ping_output}</arg>
-<status status="PASS" start="2024-09-18T08:59:16.147416" elapsed="0.004337"/>
+<status status="PASS" start="2024-09-18T09:16:57.154810" elapsed="0.005524"/>
 </kw>
 <kw name="Get Average Ping Time">
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:16.152475" level="INFO">${lines} = ['PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes', '64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.026 ms', '64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=12.609 ms', '64 byt...</msg>
+<msg time="2024-09-18T09:16:57.161100" level="INFO">${lines} = ['PING e11956.x.akamaiedge.net (184.84.235.26): 56 data bytes', '64 bytes from 184.84.235.26: icmp_seq=0 ttl=56 time=9.018 ms', '64 bytes from 184.84.235.26: icmp_seq=1 ttl=56 time=11.473 ms', '64 byt...</msg>
 <var>${lines}</var>
 <arg>${ping_output}</arg>
 <arg>\n</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.152269" elapsed="0.000237"/>
+<status status="PASS" start="2024-09-18T09:16:57.160888" elapsed="0.000247"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2024-09-18T08:59:16.152824" level="INFO">${avg_line} = round-trip min/avg/max/stddev = 9.026/11.667/14.689/2.165 ms</msg>
+<msg time="2024-09-18T09:16:57.161458" level="INFO">${avg_line} = round-trip min/avg/max/stddev = 9.018/11.216/12.252/1.303 ms</msg>
 <var>${avg_line}</var>
 <arg>${lines}</arg>
 <arg>-1</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.152641" elapsed="0.000210"/>
+<status status="PASS" start="2024-09-18T09:16:57.161269" elapsed="0.000217"/>
 </kw>
 <kw name="Split String" owner="String">
-<msg time="2024-09-18T08:59:16.153183" level="INFO">${avg_time} = ['round-trip min/avg/max/stddev ', ' 9.026/11.667/14.689/2.165 ms']</msg>
+<msg time="2024-09-18T09:16:57.161813" level="INFO">${avg_time} = ['round-trip min/avg/max/stddev ', ' 9.018/11.216/12.252/1.303 ms']</msg>
 <var>${avg_time}</var>
 <arg>${avg_line}</arg>
 <arg>=</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.152979" elapsed="0.000231"/>
+<status status="PASS" start="2024-09-18T09:16:57.161612" elapsed="0.000228"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2024-09-18T08:59:16.153915" level="INFO">${avg_time} = 9.026/11.667/14.689/2.165</msg>
+<msg time="2024-09-18T09:16:57.162545" level="INFO">${avg_time} = 9.018/11.216/12.252/1.303</msg>
 <var>${avg_time}</var>
 <arg>${avg_time[1].split()[0]}</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.153339" elapsed="0.000605"/>
+<status status="PASS" start="2024-09-18T09:16:57.161968" elapsed="0.000606"/>
 </kw>
 <return>
 <value>${avg_time}</value>
-<status status="PASS" start="2024-09-18T08:59:16.154004" elapsed="0.000035"/>
+<status status="PASS" start="2024-09-18T09:16:57.162633" elapsed="0.000035"/>
 </return>
-<msg time="2024-09-18T08:59:16.154190" level="INFO">${avg_ping_time} = 9.026/11.667/14.689/2.165</msg>
+<msg time="2024-09-18T09:16:57.162823" level="INFO">${avg_ping_time} = 9.018/11.216/12.252/1.303</msg>
 <var>${avg_ping_time}</var>
 <arg>${ping_output}</arg>
-<status status="PASS" start="2024-09-18T08:59:16.151943" elapsed="0.002273"/>
+<status status="PASS" start="2024-09-18T09:16:57.160548" elapsed="0.002301"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.154349" elapsed="0.000321"/>
+<status status="PASS" start="2024-09-18T09:16:57.162992" elapsed="0.000340"/>
 </kw>
 <kw name="Append To File" owner="OperatingSystem">
-<msg time="2024-09-18T08:59:16.155949" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
+<msg time="2024-09-18T09:16:57.164884" level="INFO" html="true">Appended to file '&lt;a href="file:///Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt"&gt;/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/Assignment4-DanLe/robotframework/ping_results.txt&lt;/a&gt;'.</msg>
 <arg>${OUTPUT_FILE}</arg>
 <arg>${webpage} - IP: ${ip_address} - Avg Time: ${avg_ping_time} ms</arg>
 <doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.154802" elapsed="0.001219"/>
+<status status="PASS" start="2024-09-18T09:16:57.163461" elapsed="0.001500"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${webpage} is faster than 50ms.</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.156580" elapsed="0.000191"/>
+<status status="PASS" start="2024-09-18T09:16:57.165537" elapsed="0.000193"/>
 </kw>
 <arg>${avg_ping_time} &lt; 50</arg>
 <arg>Log To Console</arg>
 <arg>${webpage} is faster than 50ms.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.156270" elapsed="0.000565"/>
+<status status="PASS" start="2024-09-18T09:16:57.165226" elapsed="0.000568"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>${avg_ping_time} &gt;= 50</arg>
 <arg>Fail</arg>
 <arg>${webpage} took ${avg_ping_time}ms, which is greater than 50ms.</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-09-18T08:59:16.156975" elapsed="0.000168"/>
+<status status="PASS" start="2024-09-18T09:16:57.165935" elapsed="0.000171"/>
 </kw>
 <var name="${webpage}">best.aliexpress.com</var>
-<status status="PASS" start="2024-09-18T08:59:12.695757" elapsed="3.461448"/>
+<status status="PASS" start="2024-09-18T09:16:53.643336" elapsed="3.522824"/>
 </iter>
 <var>${webpage}</var>
 <value>@{webpages}</value>
-<status status="PASS" start="2024-09-18T08:59:03.411175" elapsed="12.746082"/>
+<status status="PASS" start="2024-09-18T09:16:42.306187" elapsed="14.860024"/>
 </for>
 <doc>Read URLs from webpages.txt, ping each one, save IP address and average ping time to ping_results.txt, and verify the ping time is less than 50ms.</doc>
-<status status="PASS" start="2024-09-18T08:59:03.409313" elapsed="12.748211"/>
+<status status="PASS" start="2024-09-18T09:16:42.300383" elapsed="14.866091"/>
 </test>
-<status status="PASS" start="2024-09-18T08:59:03.388254" elapsed="12.769925"/>
+<status status="PASS" start="2024-09-18T09:16:42.277529" elapsed="14.889603"/>
 </suite>
 <statistics>
 <total>
